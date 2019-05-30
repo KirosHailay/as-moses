@@ -27,6 +27,7 @@
 #include <opencog/atoms/core/NumberNode.h>
 #include <opencog/atoms/base/Link.h>
 #include <opencog/atomese/interpreter/logical_interpreter.h>
+#include <opencog/atomese/interpreter/condlink_interpreter.h>
 
 #include "Interpreter.h"
 
@@ -138,6 +139,10 @@ ValuePtr Interpreter::execute(const Type t, const ValueSeq& params)
 		LinkValuePtr result;
 		result = logical_not( LinkValueCast(params[0]));
 		return ValuePtr(result);
+	}
+
+	if (t == COND_LINK) {
+		 condLink_interpreter res(params);
 	}
 	return ValuePtr();
 }

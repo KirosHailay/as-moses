@@ -2,6 +2,9 @@ ADD_CXXTEST(InterpreterUTest)
 TARGET_LINK_LIBRARIES(InterpreterUTest
 	-Wl,--no-as-needed
 	atomese
+	moses
+	ascombo
+	condlink_interpreter
 	${ATOMSPACE_LIBRARIES}
 	${COGUTIL_LIBRARY}
 )
