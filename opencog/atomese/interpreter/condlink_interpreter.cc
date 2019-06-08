@@ -31,7 +31,7 @@ condLink_interpreter::condLink_interpreter(const ValueSeq &seqValues_) : seqValu
 }
 void condLink_interpreter::init()
 {
-    std::cout<<"init begin"<<std::endl;
+
 	if ( 0 == seqValues.size()) {
 		throw SyntaxException(TRACE_INFO, "CondLink is expected to be arity greater-than 0!");
 	}

@@ -4,7 +4,6 @@ TARGET_LINK_LIBRARIES(InterpreterUTest
 	atomese
 	moses
 	ascombo
-	condlink_interpreter
 	${ATOMSPACE_LIBRARIES}
 	${COGUTIL_LIBRARY}
 )

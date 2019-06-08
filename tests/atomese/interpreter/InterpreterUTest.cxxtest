@@ -28,6 +28,7 @@
 #include <opencog/atomese/interpreter/logical_interpreter.h>
 #include <opencog/atoms/core/NumberNode.h>
 #include <opencog/atoms/value/LinkValue.h>
+#include <opencog/atomese/interpreter/condlink_interpreter.h>
 
 #include "opencog/utils/value_key.h"
 
@@ -164,4 +165,19 @@ public:
 
 		TS_ASSERT(atomese::logical_compare(LinkValueCast(expected), LinkValueCast(result)));
 	}
+
+	void test_interpret_condlink(void)
+    {
+	    HandleSeq  seq = {p1,f1, f2};
+	    Handle program = createLink(seq, COND_LINK);
+
+	    // expected output of value ptr
+	    std::vector<double> exp_value = {1.0,0.0,0.0};
+	    ValuePtr exp_val(new FloatValue(exp_value));
+
+	    // interpret
+	    atomese::Interpreter interpreter(moses::value_key);
+	    ValuePtr _result = interpreter(program);
+	    TS_ASSERT(atomese::condlink_compare(LinkValueCast(_result), LinkValueCast(exp_val)));
+    }
 };
